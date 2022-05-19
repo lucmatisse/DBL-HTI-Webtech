@@ -209,18 +209,20 @@ Blockly.Blocks.variables_set={init:function(){this.jsonInit({message0:Blockly.Ms
 b){Blockly.Names.equals(a,this.getFieldValue("VAR"))&&this.setFieldValue(b,"VAR")},contextMenuType_:"variables_get",customContextMenu:Blockly.Blocks.variables_get.customContextMenu};
 
 // Block with tone as input instead of frequency
-Blockly.Blocks.inout_tone= {
+Blockly.Blocks['inout_tone'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Tone PIN#")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"], ["10","10"], ["11","11"], ["12","12"], ["13","13"], ["A0","A0"], ["A1","A1"], ["A2","A2"], ["A3","A3"], ["A4","A4"], ["A5","A5"]]), "PIN")
-        .appendField("tone")
-        .appendField(new Blockly.FieldTextInput(""), "tone_choice");
-    this.setInputsInline(false);
+        .appendField("Tone: set PIN#")
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "PIN")
+        .appendField("to tone")
+        .appendField(new Blockly.FieldTextInput(""), "tone_choice")
+        .appendField("for")
+        .appendField(new Blockly.FieldTextInput(""), "duration")
+        .appendField("miliseconds");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("");
+ this.setTooltip("Set the tone you want a speaker or buzzer to play (for example: C4)");
  this.setHelpUrl("");
   }
 };
