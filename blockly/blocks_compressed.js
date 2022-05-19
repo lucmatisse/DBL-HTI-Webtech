@@ -212,7 +212,7 @@ b){Blockly.Names.equals(a,this.getFieldValue("VAR"))&&this.setFieldValue(b,"VAR"
 Blockly.Blocks['inout_tone'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Tone: set PIN#")
+        .appendField("Set PIN#")
         .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "PIN")
         .appendField("to tone")
         .appendField(new Blockly.FieldTextInput(""), "tone_choice")
