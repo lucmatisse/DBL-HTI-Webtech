@@ -270,3 +270,8 @@ function resetClick() {
         }
     });
 }
+
+function muteClick() {
+  // var code = Blockly.Arduino.workspaceToCode();
+  alert("Mute button pressed");
+}
