@@ -297,12 +297,19 @@ function init() {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
             <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
+              <button type="button" onclick="uploadClick()">PLAY</button> <!-- do we want to name this play? -->
               <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
+              <button onclick="discard()">CLEAR</button> <!-- do we want to name this clear? -->
+
+              <!-- commented these buttons since I don't think we will need them
               <button onclick="saveCode()">Save Arduino Code</button>
               <button onclick="save()">Save XML</button>
               <button id="fakeload">Load XML</button>
+<<<<<<< Updated upstream
+=======
+              -->
+              <button onclick="muteClick()" id="muteToggle" value="Mute">Mute</button>
+>>>>>>> Stashed changes
               <input type="file" id="load" style="display: none;"/>
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
@@ -311,7 +318,7 @@ function init() {
       </td>
     </tr>
     <tr>
-      <td height="99%" id="content_area"></td>
+      <td height="95%" id="content_area"></td>
     </tr>
   </table>
   <div id="content_blocks" class="content"></div>
@@ -388,6 +395,7 @@ function init() {
       <block type="inout_notone"></block>
       <block type="inout_buildin_led"></block>
     </category>
+    <!--
     <category name="Servo">
       <block type="servo_move">
         <value name="DEGREE">
@@ -398,20 +406,21 @@ function init() {
       </block>
       <block type="servo_read_degrees"></block>
     </category>
+    -->
     <category name="Grove Analog">
       <block type="grove_rotary_angle"></block>
       <block type="grove_temporature_sensor"></block>
       <block type="grove_sound_sensor"></block>
-      <block type="grove_thumb_joystick"></block>
     </category>
     <category name="Grove">
       <block type="grove_led"></block>
       <block type="grove_button"></block>
-      <block type="grove_relay"></block>
-      <block type="grove_tilt_switch"></block>
+      <!--   <block type="grove_relay"></block>   -->
+      <!-- <block type="grove_tilt_switch"></block> -->
       <block type="grove_piezo_buzzer"></block>
-      <block type="grove_pir_motion_sensor"></block>
-      <block type="grove_line_finder"></block>
+      <!-- <block type="grove_pir_motion_sensor"></block> -->
+      <!-- <block type="grove_line_finder"></block> -->
+      <block type="grove_thumb_joystick"></block>
       <block type="grove_rgb_led"></block>
       <block type="grove_ultrasonic_ranger"></block>
     </category>
