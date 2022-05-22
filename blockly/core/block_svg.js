@@ -1035,6 +1035,7 @@ Blockly.BlockSvg.prototype.dispose = function(healStack, animate,
  */
 Blockly.BlockSvg.prototype.disposeUiEffect = function() {
   this.workspace.playAudio('delete');
+  alert('test');
 
   var xy = Blockly.getSvgXY_(/** @type {!Element} */ (this.svgGroup_));
   // Deeply clone the current block.
