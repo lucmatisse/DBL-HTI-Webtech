@@ -272,6 +272,13 @@ function resetClick() {
 }
 
 function muteClick() {
-  // var code = Blockly.Arduino.workspaceToCode();
-  alert("Mute button pressed");
+  const muteButton = document.getElementById('muteToggle');
+
+  if (muteButton.innerText == 'Mute') {
+    muteButton.innerText = 'Unmute';
+    // Implement mute here
+  } else {
+    muteButton.innerText = 'Mute';
+    // Impement unmute here
+  }
 }

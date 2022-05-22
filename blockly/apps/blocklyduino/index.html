@@ -293,7 +293,7 @@ function init() {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_python" class="taboff" onclick="tabClick(this.id)">Python</td>
             <td class="tabmin">&nbsp;</td-->
-            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
+            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino code</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
             <td class="tabmax">
@@ -303,8 +303,8 @@ function init() {
               <button onclick="saveCode()">Save Arduino Code</button>
               <button onclick="save()">Save XML</button>
               <button id="fakeload">Load XML</button>
-              <button onclick="muteClick()" id="muteToggle" value="Mute">Mute</button>
               <input type="file" id="load" style="display: none;"/>
+              <button onclick="muteClick()" id="muteToggle">Mute</button>
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
           </tr>
