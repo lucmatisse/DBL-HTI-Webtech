@@ -271,14 +271,14 @@ function resetClick() {
     });
 }
 
-function muteClick() {
-  const muteButton = document.getElementById('muteToggle');
+function stimClick() {
+  const muteButton = document.getElementById('stimToggle');
 
-  if (muteButton.innerText == 'Mute') {
-    muteButton.innerText = 'Unmute';
+  if (muteButton.innerText == 'Low stimuli mode') {
+    muteButton.innerText = 'High stimuli mode';
     // Implement mute here
   } else {
-    muteButton.innerText = 'Mute';
+    muteButton.innerText = 'Low stimuli mode';
     // Impement unmute here
   }
 }

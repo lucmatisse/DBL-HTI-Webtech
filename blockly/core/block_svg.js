@@ -1071,6 +1071,7 @@ Blockly.BlockSvg.disposeUiStep_ = function(clone, rtl) {
 
 /**
  * Play some UI effects (sound, ripple) after a connection has been established.
+ * This function controls click sounds and ripple effects
  */
 Blockly.BlockSvg.prototype.connectionUiEffect = function() {
   this.workspace.playAudio('click');
@@ -1116,6 +1117,7 @@ Blockly.BlockSvg.connectionUiStep_ = function(ripple) {
 
 /**
  * Change the colour of a block.
+ * Useful for low stimuli mode
  */
 Blockly.BlockSvg.prototype.updateColour = function() {
   if (this.disabled) {
