@@ -55,6 +55,13 @@ Blockly.BlockSvg = function() {
 goog.inherits(Blockly.BlockSvg, Blockly.Block);
 
 /**
+ * Setter function for toggling to low stimuli mode would go here?
+ */
+Blockly.BlockSvg.toggleMode = function() {
+  alert('test');
+};
+
+/**
  * Height of this block, not including any statement blocks above or below.
  */
 Blockly.BlockSvg.prototype.height = 0;

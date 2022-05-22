@@ -1,3 +1,5 @@
+goog.require('Blockly.BlockSvg');
+
 /**
  * Execute the user's code.
  * Just a quick and dirty eval.  No checks for infinite loops, etc.
@@ -277,6 +279,7 @@ function stimClick() {
   if (muteButton.innerText == 'Low stimuli mode') {
     muteButton.innerText = 'High stimuli mode';
     // Implement mute here
+    //Blockly.BlockSvg.toggleMode;
   } else {
     muteButton.innerText = 'Low stimuli mode';
     // Impement unmute here
