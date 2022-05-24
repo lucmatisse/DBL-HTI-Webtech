@@ -16,7 +16,7 @@
  * List of tab names.
  * @private
  */
-var TABS_ = ['blocks', 'arduino', 'xml'];
+var TABS_ = ['blocks', 'arduino', 'xml']; // got rid of the 'xml' tab
 
 var selected = 'blocks';
 
@@ -26,6 +26,9 @@ var selected = 'blocks';
  */
 function tabClick(clickedName) {
   // If the XML tab was open, save and render the content.
+
+  
+  
   if (document.getElementById('tab_xml').className == 'tabon') {
     var xmlTextarea = document.getElementById('content_xml');
     var xmlText = xmlTextarea.value;
@@ -45,6 +48,8 @@ function tabClick(clickedName) {
       Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
     }
   }
+
+
 
   if (document.getElementById('tab_blocks').className == 'tabon') {
     Blockly.mainWorkspace.setVisible(false);
@@ -69,6 +74,17 @@ function tabClick(clickedName) {
   Blockly.fireUiEvent(window, 'resize');
 }
 
+function helpWindow() {
+  // try to let a window pop up here that is showing the help page
+
+  //location.href = "./help.html"; // this is simple way to just direct to the help page
+
+  window.open('./help.html'); // open new tab with the help page
+
+
+}
+
+
 /**
  * Populate the currently selected pane with content generated from the blocks.
  */
@@ -80,11 +96,25 @@ function renderContent() {
     // an incomplete rendering due to Blockly being invisible.  Rerender.
     Blockly.mainWorkspace.render();
   } else if (content.id == 'content_xml') {
+    // code here shows what is shown when this tab is selected. 
+    // tried showing html help page but struggling rn
+
+    
     var xmlTextarea = document.getElementById('content_xml');
     var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
     var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-    xmlTextarea.value = xmlText;
+    xmlTextarea.value = "";
     xmlTextarea.focus();
+    
+
+    // var xmlTextarea = document.getElementById('content_xml');
+    // var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+    // var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+    // xmlTextarea.value = xmlText;
+    // xmlTextarea.focus();
+
+
+
   /*} else if (content.id == 'content_javascript') {
     content.innerHTML = Blockly.JavaScript.workspaceToCode();
   } else if (content.id == 'content_dart') {
@@ -295,7 +325,7 @@ function init() {
               <input type="file" id="load" style="display: none;"/>
 
               <button onclick="stimClick()" id="stimToggle">Low stimuli mode</button>
-              <button type="button" onclick="location.href='./help.html'">Help</button>
+              <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
             <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
@@ -308,7 +338,9 @@ function init() {
             <td class="tabmin">&nbsp;</td-->
             <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino code</td>
             <td class="tabmin">&nbsp;</td>
-            <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
+            <!-- <td id="tab_xml" class="taboff" onclick="location.href='./help.html'">Help</td>  to show help page, comment out one below -->
+            <!-- <td id="tab_xml" class="taboff" onclick="tabClick('xml')">xml</td> original one -->
+            <td id="tab_xml" class="taboff" onclick="helpWindow()">Help page</td>
           </tr>
         </table>
       </td>
