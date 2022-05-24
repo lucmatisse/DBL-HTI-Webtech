@@ -1067,7 +1067,6 @@ Blockly.BlockSvg.lowStimMode = false;
 
 Blockly.BlockSvg.toggleMode = function() {
     this.lowStimMode = (this.lowStimMode == false) ? this.lowStimMode = true : this.lowStimMode = false;
-    alert('Low stim mode value set to: ' + this.lowStimMode);
 };
 
 Blockly.BlockSvg.prototype.height=0;Blockly.BlockSvg.prototype.width=0;Blockly.BlockSvg.INLINE=-1;
