@@ -283,5 +283,6 @@ function stimClick() {
   } else {
     muteButton.innerText = 'Low stimuli mode';
     // Impement unmute here
+    
   }
 }

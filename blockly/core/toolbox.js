@@ -162,10 +162,10 @@ Blockly.Toolbox.prototype.position = function() {
   var svgPosition = goog.style.getPageOffset(svg);
   var svgSize = Blockly.svgSize(svg);
   if (this.workspace_.RTL) {
-    treeDiv.style.left =
+    treeDiv.style.right =
         (svgPosition.x + svgSize.width - treeDiv.offsetWidth) + 'px';
   } else {
-    treeDiv.style.left = svgPosition.x + 'px';
+    treeDiv.style.right = svgPosition.x + 'px';
   }
   treeDiv.style.height = svgSize.height + 'px';
   treeDiv.style.top = svgPosition.y + 'px';
