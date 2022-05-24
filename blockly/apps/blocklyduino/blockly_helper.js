@@ -276,13 +276,13 @@ function resetClick() {
 function stimClick() {
   const muteButton = document.getElementById('stimToggle');
 
+  // Toggle button text
   if (muteButton.innerText == 'Low stimuli mode') {
     muteButton.innerText = 'High stimuli mode';
-    // Implement mute here
-    //Blockly.BlockSvg.toggleMode;
   } else {
     muteButton.innerText = 'Low stimuli mode';
-    // Impement unmute here
-    
   }
+
+  // Toggle modes (binary switch)
+  Blockly.BlockSvg.toggleMode();
 }
