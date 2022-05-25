@@ -1091,8 +1091,10 @@ Blockly.BlockSvg.prototype.select=function() {
     this.addSelect();
 
     // Code to be ran in low stimuli mode?
-    this.setColour(this.focusColour);
-    this.updateColour;
+    if (Blockly.BlockSvg.lowStimMode===true) {
+        this.setColour(this.focusColour);
+        this.updateColour;
+    }
 
     Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")
 };
@@ -1102,7 +1104,9 @@ Blockly.BlockSvg.prototype.unselect=function() {
     this.removeSelect();
 
     // Code to be ran in low stimuli mode?
-    this.setColour(60);
+    if (Blockly.BlockSvg.lowStimMode===true) {
+        this.setColour(60);
+    }
 
     Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")
 };
@@ -1148,7 +1152,9 @@ this.svgPath_=this.svgGroup_=null};Blockly.BlockSvg.prototype.disposeUiEffect=fu
 Blockly.BlockSvg.disposeUiStep_=function(a,b){var c=(new Date-a.startDate_)/150;1<c?goog.dom.removeNode(a):(a.setAttribute("transform","translate("+(a.translateX_+(b?-1:1)*a.bBox_.width/2*c+", "+(a.translateY_+a.bBox_.height*c))+") scale("+(1-c)+")"),setTimeout(function(){Blockly.BlockSvg.disposeUiStep_(a,b)},10))};
 Blockly.BlockSvg.prototype.connectionUiEffect=function(){this.workspace.playAudio("click");var a=Blockly.getSvgXY_(this.svgGroup_);this.outputConnection?(a.x+=this.RTL?3:-3,a.y+=13):this.previousConnection&&(a.x+=this.RTL?-23:23,a.y+=3);a=Blockly.createSvgElement("circle",{cx:a.x,cy:a.y,r:0,fill:"none",stroke:"#888","stroke-width":10},this.workspace.options.svg);a.startDate_=new Date;Blockly.BlockSvg.connectionUiStep_(a)};
 Blockly.BlockSvg.connectionUiStep_=function(a){var b=(new Date-a.startDate_)/150;1<b?goog.dom.removeNode(a):(a.setAttribute("r",25*b),a.style.opacity=1-b,setTimeout(function(){Blockly.BlockSvg.connectionUiStep_(a)},10))};
+
 Blockly.BlockSvg.prototype.updateColour=function(){if(!this.disabled){var a=Blockly.makeColour(this.getColour()),b=goog.color.hexToRgb(a),c=goog.color.lighten(b,.3),b=goog.color.darken(b,.2);this.svgPathLight_.setAttribute("stroke",goog.color.rgbArrayToHex(c));this.svgPathDark_.setAttribute("fill",goog.color.rgbArrayToHex(b));this.svgPath_.setAttribute("fill",a);c=this.getIcons();for(a=0;a<c.length;a++)c[a].updateColour();for(a=0;c=this.inputList[a];a++)for(var b=0,d;d=c.fieldRow[b];b++)d.setText(null)}};
+
 Blockly.BlockSvg.prototype.updateDisabled=function(){var a=Blockly.hasClass_(this.svgGroup_,"blocklyDisabled");this.disabled||this.getInheritedDisabled()?a||(Blockly.addClass_(this.svgGroup_,"blocklyDisabled"),this.svgPath_.setAttribute("fill","url(#blocklyDisabledPattern)")):a&&(Blockly.removeClass_(this.svgGroup_,"blocklyDisabled"),this.updateColour());for(var a=this.getChildren(),b=0,c;c=a[b];b++)c.updateDisabled()};
 Blockly.BlockSvg.prototype.getCommentText=function(){return this.comment?this.comment.getText().replace(/\s+$/,"").replace(/ +\n/g,"\n"):""};Blockly.BlockSvg.prototype.setCommentText=function(a){var b=!1;goog.isString(a)?(this.comment||(this.comment=new Blockly.Comment(this),b=!0),this.comment.setText(a)):this.comment&&(this.comment.dispose(),b=!0);b&&this.rendered&&(this.render(),this.bumpNeighbours_())};
 Blockly.BlockSvg.prototype.setWarningText=function(a,b){this.setWarningText.pid_&&(clearTimeout(this.setWarningText.pid_),this.setWarningText.pid_=0);if(2==Blockly.dragMode_){var c=this;this.setWarningText.pid_=setTimeout(function(){c.setWarningText.pid_=0;c.setWarningText(a,b)},100)}else{this.isInFlyout&&(a=null);var d=!1;goog.isString(a)?(this.warning||(this.warning=new Blockly.Warning(this),d=!0),this.warning.setText(a,b)):this.warning&&void 0===b?(this.warning.dispose(),d=!0):this.warning&&(this.warning.removeText(b),
@@ -1350,7 +1356,16 @@ Blockly.createSvgElement=function(a,b,c){a=document.createElementNS(Blockly.SVG_
 Blockly.mouseToSvg=function(a,b){var c=b.createSVGPoint();c.x=a.clientX;c.y=a.clientY;var d=b.getScreenCTM(),d=d.inverse();return c.matrixTransform(d)};Blockly.shortestStringLength=function(a){if(!a.length)return 0;for(var b=a[0].length,c=1;c<a.length;c++)b=Math.min(b,a[c].length);return b};
 Blockly.commonWordPrefix=function(a,b){if(!a.length)return 0;if(1==a.length)return a[0].length;for(var c=0,d=b||Blockly.shortestStringLength(a),e=0;e<d;e++){for(var f=a[0][e],g=1;g<a.length;g++)if(f!=a[g][e])return c;" "==f&&(c=e+1)}for(g=1;g<a.length;g++)if((f=a[g][e])&&" "!=f)return c;return d};
 Blockly.commonWordSuffix=function(a,b){if(!a.length)return 0;if(1==a.length)return a[0].length;for(var c=0,d=b||Blockly.shortestStringLength(a),e=0;e<d;e++){for(var f=a[0].substr(-e-1,1),g=1;g<a.length;g++)if(f!=a[g].substr(-e-1,1))return c;" "==f&&(c=e+1)}for(g=1;g<a.length;g++)if((f=a[g].charAt(a[g].length-e-1))&&" "!=f)return c;return d};Blockly.isNumber=function(a){return!!a.match(/^\s*-?\d+(\.\d+)?\s*$/)};
-Blockly.tokenizeInterpolation=function(a){var b=[];a=a.split("");a.push("");for(var c=0,d=[],e=null,f=0;f<a.length;f++){var g=a[f];0==c?"%"==g?c=1:d.push(g):1==c?"%"==g?(d.push(g),c=0):"0"<=g&&"9">=g?(c=2,e=g,(g=d.join(""))&&b.push(g),d.length=0):(d.push("%",g),c=0):2==c&&("0"<=g&&"9">=g?e+=g:(b.push(parseInt(e,10)),f--,c=0))}(g=d.join(""))&&b.push(g);return b};Blockly.SVG_NS="http://www.w3.org/2000/svg";Blockly.HTML_NS="http://www.w3.org/1999/xhtml";Blockly.HSV_SATURATION=.45;Blockly.HSV_VALUE=.65;Blockly.SPRITE={width:64,height:92,url:"sprites.png"};Blockly.makeColour=function(a){return goog.color.hsvToHex(a,Blockly.HSV_SATURATION,255*Blockly.HSV_VALUE)};Blockly.INPUT_VALUE=1;Blockly.OUTPUT_VALUE=2;Blockly.NEXT_STATEMENT=3;Blockly.PREVIOUS_STATEMENT=4;Blockly.DUMMY_INPUT=5;Blockly.ALIGN_LEFT=-1;Blockly.ALIGN_CENTRE=0;Blockly.ALIGN_RIGHT=1;
+Blockly.tokenizeInterpolation=function(a){var b=[];a=a.split("");a.push("");for(var c=0,d=[],e=null,f=0;f<a.length;f++){var g=a[f];0==c?"%"==g?c=1:d.push(g):1==c?"%"==g?(d.push(g),c=0):"0"<=g&&"9">=g?(c=2,e=g,(g=d.join(""))&&b.push(g),d.length=0):(d.push("%",g),c=0):2==c&&("0"<=g&&"9">=g?e+=g:(b.push(parseInt(e,10)),f--,c=0))}(g=d.join(""))&&b.push(g);return b};Blockly.SVG_NS="http://www.w3.org/2000/svg";Blockly.HTML_NS="http://www.w3.org/1999/xhtml";
+
+/**
+ * makeColour
+ */
+
+Blockly.HSV_SATURATION=.45;Blockly.HSV_VALUE=.65;Blockly.SPRITE={width:64,height:92,url:"sprites.png"};
+Blockly.makeColour=function(a){return goog.color.hsvToHex(a,Blockly.HSV_SATURATION,255*Blockly.HSV_VALUE)};
+
+Blockly.INPUT_VALUE=1;Blockly.OUTPUT_VALUE=2;Blockly.NEXT_STATEMENT=3;Blockly.PREVIOUS_STATEMENT=4;Blockly.DUMMY_INPUT=5;Blockly.ALIGN_LEFT=-1;Blockly.ALIGN_CENTRE=0;Blockly.ALIGN_RIGHT=1;
 Blockly.OPPOSITE_TYPE=[];Blockly.OPPOSITE_TYPE[Blockly.INPUT_VALUE]=Blockly.OUTPUT_VALUE;Blockly.OPPOSITE_TYPE[Blockly.OUTPUT_VALUE]=Blockly.INPUT_VALUE;Blockly.OPPOSITE_TYPE[Blockly.NEXT_STATEMENT]=Blockly.PREVIOUS_STATEMENT;Blockly.OPPOSITE_TYPE[Blockly.PREVIOUS_STATEMENT]=Blockly.NEXT_STATEMENT;Blockly.selected=null;Blockly.highlightedConnection_=null;Blockly.localConnection_=null;Blockly.DRAG_RADIUS=5;Blockly.SNAP_RADIUS=20;Blockly.BUMP_DELAY=250;Blockly.COLLAPSE_CHARS=30;Blockly.LONGPRESS=750;
 Blockly.mainWorkspace=null;Blockly.clipboardXml_=null;Blockly.clipboardSource_=null;Blockly.dragMode_=0;Blockly.onTouchUpWrapper_=null;Blockly.svgSize=function(a){return{width:a.cachedWidth_,height:a.cachedHeight_}};
 Blockly.svgResize=function(a){for(;a.options.parentWorkspace;)a=a.options.parentWorkspace;var b=a.options.svg,c=b.parentNode;if(c){var d=c.offsetWidth,c=c.offsetHeight;b.cachedWidth_!=d&&(b.setAttribute("width",d+"px"),b.cachedWidth_=d);b.cachedHeight_!=c&&(b.setAttribute("height",c+"px"),b.cachedHeight_=c);a.resize()}};
