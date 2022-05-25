@@ -1071,8 +1071,25 @@ Blockly.BlockSvg.toggleMode = function() {
 
 Blockly.BlockSvg.prototype.height=0;Blockly.BlockSvg.prototype.width=0;Blockly.BlockSvg.INLINE=-1;
 Blockly.BlockSvg.prototype.initSvg=function(){goog.asserts.assert(this.workspace.rendered,"Workspace is headless.");for(var a=0,b;b=this.inputList[a];a++)b.init();this.mutator&&this.mutator.createIcon();this.updateColour();this.updateMovable();if(!this.workspace.options.readOnly&&!this.eventsInit_){Blockly.bindEvent_(this.getSvgRoot(),"mousedown",this,this.onMouseDown_);var c=this;Blockly.bindEvent_(this.getSvgRoot(),"touchstart",null,function(a){Blockly.longStart_(a,c)})}goog.isFunction(this.onchange)&&
-!this.eventsInit_&&(this.onchangeWrapper_=Blockly.bindEvent_(this.workspace.getCanvas(),"blocklyWorkspaceChange",this,this.onchange));this.eventsInit_=!0;this.getSvgRoot().parentNode||this.workspace.getCanvas().appendChild(this.getSvgRoot())};Blockly.BlockSvg.prototype.select=function(){Blockly.selected&&Blockly.selected.unselect();Blockly.selected=this;this.addSelect();Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};
-Blockly.BlockSvg.prototype.unselect=function(){Blockly.selected=null;this.removeSelect();Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};Blockly.BlockSvg.prototype.mutator=null;Blockly.BlockSvg.prototype.comment=null;Blockly.BlockSvg.prototype.warning=null;Blockly.BlockSvg.prototype.getIcons=function(){var a=[];this.mutator&&a.push(this.mutator);this.comment&&a.push(this.comment);this.warning&&a.push(this.warning);return a};Blockly.BlockSvg.onMouseUpWrapper_=null;
+!this.eventsInit_&&(this.onchangeWrapper_=Blockly.bindEvent_(this.workspace.getCanvas(),"blocklyWorkspaceChange",this,this.onchange));this.eventsInit_=!0;this.getSvgRoot().parentNode||this.workspace.getCanvas().appendChild(this.getSvgRoot())};
+
+Blockly.BlockSvg.prototype.select=function(){
+    Blockly.selected&&Blockly.selected.unselect();
+    Blockly.selected=this;
+    this.addSelect();
+    this.setColour(this.focusColour);
+    this.updateColour;
+    Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};
+
+Blockly.BlockSvg.prototype.unselect=function(){
+    Blockly.selected=null;
+    this.removeSelect();
+    this.setColour(60);
+    Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};
+Blockly.BlockSvg.prototype.mutator=null;
+Blockly.BlockSvg.prototype.comment=null;
+Blockly.BlockSvg.prototype.warning=null;
+Blockly.BlockSvg.prototype.getIcons=function(){var a=[];this.mutator&&a.push(this.mutator);this.comment&&a.push(this.comment);this.warning&&a.push(this.warning);return a};Blockly.BlockSvg.onMouseUpWrapper_=null;
 Blockly.BlockSvg.onMouseMoveWrapper_=null;
 Blockly.BlockSvg.terminateDrag_=function(){Blockly.BlockSvg.onMouseUpWrapper_&&(Blockly.unbindEvent_(Blockly.BlockSvg.onMouseUpWrapper_),Blockly.BlockSvg.onMouseUpWrapper_=null);Blockly.BlockSvg.onMouseMoveWrapper_&&(Blockly.unbindEvent_(Blockly.BlockSvg.onMouseMoveWrapper_),Blockly.BlockSvg.onMouseMoveWrapper_=null);var a=Blockly.selected;if(2==Blockly.dragMode_&&a){var b=a.getRelativeToSurfaceXY();a.moveConnections_(b.x-a.startDragX,b.y-a.startDragY);delete a.draggedBubbles_;a.setDragging_(!1);
 a.render();a.workspace&&a.workspace.options.gridOptions&&a.workspace.options.gridOptions.snap&&goog.Timer.callOnce(a.snapToGrid_,Blockly.BUMP_DELAY/2,a);goog.Timer.callOnce(a.bumpNeighbours_,Blockly.BUMP_DELAY,a);Blockly.fireUiEvent(window,"resize");a.workspace.fireChangeEvent()}Blockly.dragMode_=0;Blockly.Css.setCursor(Blockly.Css.Cursor.OPEN)};
