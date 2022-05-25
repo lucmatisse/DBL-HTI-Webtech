@@ -1075,6 +1075,7 @@ Blockly.BlockSvg.lowStimMode = false;
 
 Blockly.BlockSvg.toggleMode = function() {
     this.lowStimMode = (this.lowStimMode == false) ? this.lowStimMode = true : this.lowStimMode = false;
+    Blockly.HSV_SATURATION = 0.05;
 };
 
 Blockly.BlockSvg.prototype.height=0;Blockly.BlockSvg.prototype.width=0;Blockly.BlockSvg.INLINE=-1;
@@ -1093,7 +1094,7 @@ Blockly.BlockSvg.prototype.select=function() {
     // Code to be ran in low stimuli mode?
     if (Blockly.BlockSvg.lowStimMode===true) {
         this.setColour(this.focusColour);
-        this.updateColour;
+        this.updateColour();
     }
 
     Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")
@@ -1153,7 +1154,7 @@ Blockly.BlockSvg.disposeUiStep_=function(a,b){var c=(new Date-a.startDate_)/150;
 Blockly.BlockSvg.prototype.connectionUiEffect=function(){this.workspace.playAudio("click");var a=Blockly.getSvgXY_(this.svgGroup_);this.outputConnection?(a.x+=this.RTL?3:-3,a.y+=13):this.previousConnection&&(a.x+=this.RTL?-23:23,a.y+=3);a=Blockly.createSvgElement("circle",{cx:a.x,cy:a.y,r:0,fill:"none",stroke:"#888","stroke-width":10},this.workspace.options.svg);a.startDate_=new Date;Blockly.BlockSvg.connectionUiStep_(a)};
 Blockly.BlockSvg.connectionUiStep_=function(a){var b=(new Date-a.startDate_)/150;1<b?goog.dom.removeNode(a):(a.setAttribute("r",25*b),a.style.opacity=1-b,setTimeout(function(){Blockly.BlockSvg.connectionUiStep_(a)},10))};
 
-Blockly.BlockSvg.prototype.updateColour=function(){if(!this.disabled){var a=Blockly.makeColour(this.getColour()),b=goog.color.hexToRgb(a),c=goog.color.lighten(b,.3),b=goog.color.darken(b,.2);this.svgPathLight_.setAttribute("stroke",goog.color.rgbArrayToHex(c));this.svgPathDark_.setAttribute("fill",goog.color.rgbArrayToHex(b));this.svgPath_.setAttribute("fill",a);c=this.getIcons();for(a=0;a<c.length;a++)c[a].updateColour();for(a=0;c=this.inputList[a];a++)for(var b=0,d;d=c.fieldRow[b];b++)d.setText(null)}};
+Blockly.BlockSvg.prototype.updateColour=function(){if(!this.disabled){var a=Blockly.makeColour(this.getColour()),b=goog.color.hexToRgb(a),c=goog.color.lighten(b,.3),b=goog.color.darken(b,.2);this.svgPathLight_.setAttribute("stroke",goog.color.rgbArrayToHex(c));this.svgPathDark_.setAttribute("fill",goog.color.rgbArrayToHex(b));this.svgPath_.setAttribute("fill",a);c=this.getIcons();for(a=0;a<c.length;a++){c[a].updateColour();}for(a=0;c=this.inputList[a];a++)for(var b=0,d;d=c.fieldRow[b];b++)d.setText(null)}};
 
 Blockly.BlockSvg.prototype.updateDisabled=function(){var a=Blockly.hasClass_(this.svgGroup_,"blocklyDisabled");this.disabled||this.getInheritedDisabled()?a||(Blockly.addClass_(this.svgGroup_,"blocklyDisabled"),this.svgPath_.setAttribute("fill","url(#blocklyDisabledPattern)")):a&&(Blockly.removeClass_(this.svgGroup_,"blocklyDisabled"),this.updateColour());for(var a=this.getChildren(),b=0,c;c=a[b];b++)c.updateDisabled()};
 Blockly.BlockSvg.prototype.getCommentText=function(){return this.comment?this.comment.getText().replace(/\s+$/,"").replace(/ +\n/g,"\n"):""};Blockly.BlockSvg.prototype.setCommentText=function(a){var b=!1;goog.isString(a)?(this.comment||(this.comment=new Blockly.Comment(this),b=!0),this.comment.setText(a)):this.comment&&(this.comment.dispose(),b=!0);b&&this.rendered&&(this.render(),this.bumpNeighbours_())};
