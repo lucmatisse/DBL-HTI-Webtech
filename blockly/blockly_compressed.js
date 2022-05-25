@@ -1032,7 +1032,15 @@ Blockly.Block.prototype.setParent=function(a){if(this.parentBlock_){for(var b=th
 a)?a.childBlocks_.push(this):this.workspace.addTopBlock(this)};Blockly.Block.prototype.getDescendants=function(){for(var a=[this],b,c=0;b=this.childBlocks_[c];c++)a.push.apply(a,b.getDescendants());return a};Blockly.Block.prototype.isDeletable=function(){return this.deletable_&&!(this.workspace&&this.workspace.options.readOnly)};Blockly.Block.prototype.setDeletable=function(a){this.deletable_=a};Blockly.Block.prototype.isMovable=function(){return this.movable_&&!(this.workspace&&this.workspace.options.readOnly)};
 Blockly.Block.prototype.setMovable=function(a){this.movable_=a};Blockly.Block.prototype.isEditable=function(){return this.editable_&&!(this.workspace&&this.workspace.options.readOnly)};Blockly.Block.prototype.setEditable=function(a){this.editable_=a;a=0;for(var b;b=this.inputList[a];a++)for(var c=0,d;d=b.fieldRow[c];c++)d.updateEditable();if(this.rendered)for(b=this.getIcons(),a=0;a<b.length;a++)b[a].updateEditable()};
 Blockly.Block.prototype.setConnectionsHidden=function(a){if(!a&&this.isCollapsed()){if(this.outputConnection&&this.outputConnection.setHidden(a),this.previousConnection&&this.previousConnection.setHidden(a),this.nextConnection){this.nextConnection.setHidden(a);var b=this.nextConnection.targetBlock();b&&b.setConnectionsHidden(a)}}else for(var c=this.getConnections_(!0),d=0;b=c[d];d++)b.setHidden(a),b.isSuperior()&&(b=b.targetBlock())&&b.setConnectionsHidden(a)};
-Blockly.Block.prototype.setHelpUrl=function(a){this.helpUrl=a};Blockly.Block.prototype.setTooltip=function(a){this.tooltip=a};Blockly.Block.prototype.getColour=function(){return this.colourHue_};Blockly.Block.prototype.setColour=function(a){this.colourHue_=a;this.rendered&&this.updateColour()};Blockly.Block.prototype.getField=function(a){for(var b=0,c;c=this.inputList[b];b++)for(var d=0,e;e=c.fieldRow[d];d++)if(e.name===a)return e;return null};
+Blockly.Block.prototype.setHelpUrl=function(a){this.helpUrl=a};Blockly.Block.prototype.setTooltip=function(a){this.tooltip=a};
+
+/**
+ * Possibly relevant?
+ */
+Blockly.Block.prototype.getColour=function(){return this.colourHue_};
+Blockly.Block.prototype.setColour=function(a){this.colourHue_=a;this.rendered&&this.updateColour()};
+Blockly.Block.prototype.getField=function(a){for(var b=0,c;c=this.inputList[b];b++)for(var d=0,e;e=c.fieldRow[d];d++)if(e.name===a)return e;return null};
+
 Blockly.Block.prototype.getFieldValue=function(a){return(a=this.getField(a))?a.getValue():null};Blockly.Block.prototype.getTitleValue=function(a){console.warn("Deprecated call to getTitleValue, use getFieldValue instead.");return this.getFieldValue(a)};Blockly.Block.prototype.setFieldValue=function(a,b){var c=this.getField(b);goog.asserts.assertObject(c,'Field "%s" not found.',b);c.setValue(a)};
 Blockly.Block.prototype.setTitleValue=function(a,b){console.warn("Deprecated call to setTitleValue, use setFieldValue instead.");this.setFieldValue(a,b)};
 Blockly.Block.prototype.setPreviousStatement=function(a,b){this.previousConnection&&(goog.asserts.assert(!this.previousConnection.targetConnection,"Must disconnect previous statement before removing connection."),this.previousConnection.dispose(),this.previousConnection=null);a&&(goog.asserts.assert(!this.outputConnection,"Remove output connection prior to adding previous connection."),void 0===b&&(b=null),this.previousConnection=new Blockly.Connection(this,Blockly.PREVIOUS_STATEMENT),this.previousConnection.setCheck(b));
@@ -1073,19 +1081,25 @@ Blockly.BlockSvg.prototype.height=0;Blockly.BlockSvg.prototype.width=0;Blockly.B
 Blockly.BlockSvg.prototype.initSvg=function(){goog.asserts.assert(this.workspace.rendered,"Workspace is headless.");for(var a=0,b;b=this.inputList[a];a++)b.init();this.mutator&&this.mutator.createIcon();this.updateColour();this.updateMovable();if(!this.workspace.options.readOnly&&!this.eventsInit_){Blockly.bindEvent_(this.getSvgRoot(),"mousedown",this,this.onMouseDown_);var c=this;Blockly.bindEvent_(this.getSvgRoot(),"touchstart",null,function(a){Blockly.longStart_(a,c)})}goog.isFunction(this.onchange)&&
 !this.eventsInit_&&(this.onchangeWrapper_=Blockly.bindEvent_(this.workspace.getCanvas(),"blocklyWorkspaceChange",this,this.onchange));this.eventsInit_=!0;this.getSvgRoot().parentNode||this.workspace.getCanvas().appendChild(this.getSvgRoot())};
 
-Blockly.BlockSvg.prototype.select=function(){
+/**
+ * Manual edit: edited selection functions
+ */
+
+Blockly.BlockSvg.prototype.select=function() {
     Blockly.selected&&Blockly.selected.unselect();
     Blockly.selected=this;
     this.addSelect();
     this.setColour(this.focusColour);
     this.updateColour;
-    Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};
+    Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")
+};
 
-Blockly.BlockSvg.prototype.unselect=function(){
+Blockly.BlockSvg.prototype.unselect=function() {
     Blockly.selected=null;
     this.removeSelect();
     this.setColour(60);
-    Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};
+    Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")
+};
     
 Blockly.BlockSvg.prototype.mutator=null;
 Blockly.BlockSvg.prototype.comment=null;
