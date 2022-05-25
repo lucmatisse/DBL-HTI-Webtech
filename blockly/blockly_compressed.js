@@ -1086,6 +1086,7 @@ Blockly.BlockSvg.prototype.unselect=function(){
     this.removeSelect();
     this.setColour(60);
     Blockly.fireUiEvent(this.workspace.getCanvas(),"blocklySelectChange")};
+    
 Blockly.BlockSvg.prototype.mutator=null;
 Blockly.BlockSvg.prototype.comment=null;
 Blockly.BlockSvg.prototype.warning=null;
