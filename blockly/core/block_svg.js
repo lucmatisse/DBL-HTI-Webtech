@@ -59,7 +59,7 @@ goog.inherits(Blockly.BlockSvg, Blockly.Block);
  */
 Blockly.BlockSvg.toggleMode = function() {
   alert('test');
-  
+
 };
 
 /**
