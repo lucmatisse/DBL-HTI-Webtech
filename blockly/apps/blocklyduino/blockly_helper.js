@@ -103,7 +103,7 @@ function load(event) {
  */
 function discard() {
   var count = Blockly.mainWorkspace.getAllBlocks().length;
-  if (count < 2 || window.confirm('Delete all ' + count + ' blocks?')) {
+  if (count < 2 || window.confirm('Are you sure you want to delete all ' + count + ' blocks? This cannot be undone.')) {
     Blockly.mainWorkspace.clear();
     renderContent();
   }
@@ -225,16 +225,16 @@ function uploadCode(code, callback) {
         case 200:
             break;
         case 0:
-            errorInfo = "code 0\n\nCould not connect to server at " + url + ".  Is the local web server running?";
+            errorInfo = "Could not connect to the server at " + url + ".  Is the local web server running?";
             break;
         case 400:
-            errorInfo = "code 400\n\nBuild failed - probably due to invalid source code.  Make sure that there are no missing connections in the blocks.";
+            errorInfo = "The build failed - probably because of errors in the code.  Make sure that all blocks are properly connected";
             break;
         case 500:
-            errorInfo = "code 500\n\nUpload failed.  Is the Arduino connected to USB port?";
+            errorInfo = "Could not upload the code.  Is the Arduino connected to USB port?";
             break;
         case 501:
-            errorInfo = "code 501\n\nUpload failed.  Is 'ino' installed and in your path?  This only works on Mac OS X and Linux at this time.";
+            errorInfo = "Could not upload the code.  Is 'ino' installed and in your path?  This only works on Mac OS X and Linux at this time.";
             break;
         default:
             errorInfo = "code " + status + "\n\nUnknown error.";
@@ -252,13 +252,13 @@ function uploadCode(code, callback) {
 function uploadClick() {
     var code = Blockly.Arduino.workspaceToCode();
 
-    alert("Ready to upload to Arduino.");
+    alert("Uploading your code to the Arduino...");
     
     uploadCode(code, function(status, errorInfo) {
         if (status == 200) {
-            alert("Program uploaded ok");
+            alert("Program uploaded to the Arduino!");
         } else {
-            alert("Error uploading program: " + errorInfo);
+            alert("There was a problem uploading the program: \n" + errorInfo);
         }
     });
 }
@@ -268,7 +268,7 @@ function resetClick() {
 
     uploadCode(code, function(status, errorInfo) {
         if (status != 200) {
-            alert("Error resetting program: " + errorInfo);
+            alert("There was a problem resetting the Arduino: \n" + errorInfo);
         }
     });
 }
