@@ -1,33 +1,35 @@
 ### 2IOA0 Group 2 Prototype
-
 This prototype is a web based visual programming tool aimed at children between grade <grade> and <grade> who have Autism Spectrum Disorder (ASD). The current version runs locally and is based on BlocklyDuino.
 
 > See [BlockDuino v2](https://github.com/BlocklyDuino/BlocklyDuino-v2) for the source and original README.
 
-### How to use the tool
+### Instructions
+The current prototype version is not yet hosted and therefore runs locally.
+
+To start the tool:
+* Find `arduino_web_server.py` in the same folder as this README file and run it.
+* Check the Command Prompt for confirmation. The window should say: `Blocklyduino can now be accessed at http://127.0.0.1:8080/`
+* Find the `2IOA0 Group 2 Prototype` shortcut in the same folder and run it.
+
+The visual interface should now be open and the tool is ready to go!
+
+To use the tool:
+* Browse the categories in the toolbox on the left to find the code blocks
+* Click and drag blocks to the workspace and snap them together to create a program
+* When ready, hit the `Upload` button to send the code to the Arduino
+
+Additional features:
+* The `Reset Arduino` button stops the current Arduino programming
+* The `Clear Workspace` button clears all blocks from the workspace (after confirmation)
+* The `Save Arduino Code` button allows the user to save (download) the Arduino code directly
+* The `Save Project` and `Load Project` buttons allow the user to save and load the current block configuration and code
+* The `Low Stimuli mode` button activates low stimuli mode, a mode that mutes sounds and reduces colors to help prevent sensory overload
+
 
 * Programming Arduino with visually drag and drop code blocks
 * Generate fully compatible Arduino source code
 * Interactive Arduino board with 10+ predefined Grove sensor blocks
 * Load different on-site examples with url parameters
-
-### Run locally on your web browser
-If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser. 
-
-The preffered way is to put the `BlocklyDuino/web` folder into a web server and open the url like `localhost/public/blockly/apps/blocklyduino/index.html` for use.
-
-### Integrated Arduino upload
-To avoid the tedious step of manually pasting code to the Arduino IDE, you can run a mini webserver that uses
-the [Arduino IDE](https://www.arduino.cc/en/Main/Software) to upload the code to a connected Arduino board on Windows, Mac OS X and Linux systems.
-Invoke this command from the BlocklyDuino root folder:
-```
-python arduino_web_server.py 
-```
-
-You can optionally specify the port with `--port=COM3` (or `--port=/dev/tty.foo` on Linux and Mac); 
-if you don't, it will try and guess which port to use.
-
-When the webserver is running, you can access BlocklyDuino itself on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 
 ### Usage
 1. Open browser to BlocklyDuino, drag and drop blocks to make an Arduino program
