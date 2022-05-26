@@ -277,10 +277,10 @@ function stimClick() {
   const muteButton = document.getElementById('stimToggle');
 
   // Toggle button text
-  if (muteButton.innerText == 'Low stimuli mode') {
-    muteButton.innerText = 'High stimuli mode';
+  if (muteButton.innerText == 'Low Stimuli Mode') {
+    muteButton.innerText = 'High Stimuli Mode';
   } else {
-    muteButton.innerText = 'Low stimuli mode';
+    muteButton.innerText = 'Low Stimuli Mode';
   }
 
   // Toggle modes (binary switch)
