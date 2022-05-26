@@ -1075,7 +1075,12 @@ Blockly.BlockSvg.lowStimMode = false;
 
 Blockly.BlockSvg.toggleMode = function() {
     this.lowStimMode = (this.lowStimMode == false) ? this.lowStimMode = true : this.lowStimMode = false;
-    Blockly.HSV_SATURATION = 0.05;
+    Blockly.HSV_SATURATION = (Blockly.HSV_SATURATION == 0.05) ? Blockly.HSV_SATURATION = 0.45 : Blockly.HSV_SATURATION = 0.05
+
+    // Refresh all blocks
+    this.blockArray = Blockly.mainWorkspace.getAllBlocks()
+    this.blockArray.forEach(element => {if(!(element == Blockly.selected)){element.updateColour()}});
+    Blockly.hideChaff(false);
 };
 
 Blockly.BlockSvg.prototype.height=0;Blockly.BlockSvg.prototype.width=0;Blockly.BlockSvg.INLINE=-1;
@@ -1093,8 +1098,6 @@ Blockly.BlockSvg.prototype.select=function() {
 
     // Code to be ran in low stimuli mode?
     if (Blockly.BlockSvg.lowStimMode===true) {
-        //this.setColour(this.focusColour);
-        //this.updateColour();
         this.updateSelectedColour(this.getColour());
     }
 
@@ -1107,7 +1110,6 @@ Blockly.BlockSvg.prototype.unselect=function() {
 
     // Code to be ran in low stimuli mode?
     if (Blockly.BlockSvg.lowStimMode===true) {
-        //this.setColour(60);
         this.updateColour(this.getColour());
     }
 
