@@ -1,7 +1,7 @@
 <html manifest=node.manifest>
 <head>
   <meta charset="utf-8">
-  <title>placeholder</title>
+  <title>Prototype</title>
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
   <script type="text/javascript" src="../../arduino_compressed.js"></script>
@@ -302,13 +302,16 @@ function init() {
     button:hover {
       box-shadow: 2px 2px 5px #888;
     }
+    .stim {
+      width: 150px;
+    }
   </style>
 </head>
 <body onload="init()">
   <table height="100%" width="100%">
     <tr>
       <td>
-        <h1>placeholder</a> &gt; do we want text here?</h1>
+        <h1>2IOA0 Group 2 Prototype</h1>
       </td>
     </tr>
     <tr>
@@ -317,14 +320,14 @@ function init() {
           <tr id="tabRow" height="1em">
             <td class="tabmin">
               <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
+              <button type="button" onclick="resetClick()">Reset Arduino</button>
+              <button onclick="discard()">Clear Workspace</button>
               <button onclick="saveCode()">Save Arduino Code</button>
-              <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
+              <button onclick="save()">Save Project</button>
+              <button id="fakeload">Load Project</button>
               <input type="file" id="load" style="display: none;"/>
 
-              <button onclick="stimClick()" id="stimToggle">Low stimuli mode</button>
+              <button class = "stim" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
