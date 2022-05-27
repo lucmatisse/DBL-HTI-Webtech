@@ -9,7 +9,8 @@ The current prototype version is not yet hosted and therefore runs locally.
 To start the tool:
 * Find `arduino_web_server.py` in the same folder as this README file and run it.
 * Check the Command Prompt for confirmation. The window should say: `Blocklyduino can now be accessed at http://127.0.0.1:8080/`
-* Find the `2IOA0 Group 2 Prototype` shortcut in the same folder and run it.
+* Find the `2IOA0 Group 2 Prototype` shortcut in the same folder and run it. This should open a browser window.
+  Alternatively, browse to `blockly -> apps -> blocklyduino -> index.html` to manually open the page.
 
 The visual interface should now be open and the tool is ready to go!
 
