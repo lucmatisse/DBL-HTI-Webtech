@@ -305,6 +305,15 @@ function init() {
     .stim {
       width: 150px;
     }
+    .sl {
+      position: fixed;
+      bottom: 650px;
+      right: 1750px;
+      z-index: 10;
+    }
+    .sl tr td {
+      padding-top: 7px;
+    }
   </style>
 </head>
 <body onload="init()">
@@ -323,8 +332,6 @@ function init() {
               <button type="button" onclick="resetClick()">Reset Arduino</button>
               <button onclick="discard()">Clear Workspace</button>
               <button onclick="saveCode()">Save Arduino Code</button>
-              <button onclick="save()">Save Project</button>
-              <button id="fakeload">Load Project</button>
               <input type="file" id="load" style="display: none;"/>
 
               <button class = "stim" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
@@ -351,6 +358,14 @@ function init() {
     <tr>
       <td height="99%" id="content_area"></td>
     </tr>
+    <table class="sl">
+    <tr>
+      <td><button onclick="save()">Save Project</button></td>
+    </tr>
+    <tr>
+        <td><button id="fakeload">Load Project</button></td>
+    </tr>
+    </table>
   </table>
   <div id="content_blocks" class="content"></div>
   <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
@@ -489,6 +504,7 @@ function init() {
       <block type="grove_motor_shield"></block>
     </category>
     -->
+    <sep></sep>
   </xml>
 </body>
 </html>
