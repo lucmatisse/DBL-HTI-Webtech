@@ -332,7 +332,6 @@ function init() {
               <button type="button" onclick="resetClick()">Reset Arduino</button>
               <button onclick="discard()">Clear Workspace</button>
               <button onclick="saveCode()">Save Arduino Code</button>
-              <input type="file" id="load" style="display: none;"/>
 
               <button class = "stim" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
@@ -363,7 +362,8 @@ function init() {
       <td><button onclick="save()">Save Project</button></td>
     </tr>
     <tr>
-        <td><button id="fakeload">Load Project</button></td>
+      <td><button id="fakeload">Load Project</button></td>
+      <input type="file" id="load" style="display: none;"/>
     </tr>
     </table>
   </table>
@@ -421,7 +421,6 @@ function init() {
     <!--
     <category name="Functions" custom="PROCEDURE"></category>
     -->
-    <sep></sep>
     <category name="Input/Output">
       <block type="text"></block>
       <block type="inout_highlow"></block>
