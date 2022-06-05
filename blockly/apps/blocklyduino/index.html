@@ -3,8 +3,21 @@
   <meta charset="utf-8">
   <title>Prototype</title>
 
+  <!--
   
-  
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+  <py-script>
+
+    #!/usr/bin/env python2.7
+    #import arduino_web_server.py
+    execfile("Script1.py")
+
+  </py-script>
+
+  -->
+
 
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
@@ -14,8 +27,9 @@
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
+
+  
 
 /**
  * List of tab names.
@@ -24,16 +38,6 @@
 var TABS_ = ['blocks', 'arduino', 'xml']; // got rid of the 'xml' tab
 
 var selected = 'blocks';
-
-
-function goPython(){
-            $.ajax({
-              url: "arduino_web_server.py",
-             context: document.body
-            }).done(function() {
-             alert('finished python script');;
-            });
-}
 
 
 /**
@@ -350,7 +354,6 @@ function init() {
               <button onclick="saveCode()">Save Arduino Code</button>
 
               <button class = "stim" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
-              <button onclick="goPython()">Run Python</button>
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
