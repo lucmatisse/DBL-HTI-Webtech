@@ -332,6 +332,9 @@ function init() {
               <button type="button" onclick="resetClick()">Reset Arduino</button>
               <button onclick="discard()">Clear Workspace</button>
               <button onclick="saveCode()">Save Arduino Code</button>
+              <button onclick="save()">Save Project</button>
+              <button id="fakeload">Load Project</button>
+              <input type="file" id="load" style="display: none;"/>
 
               <button class = "stim" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
@@ -357,15 +360,6 @@ function init() {
     <tr>
       <td height="99%" id="content_area"></td>
     </tr>
-    <table class="sl">
-    <tr>
-      <td><button onclick="save()">Save Project</button></td>
-    </tr>
-    <tr>
-      <td><button id="fakeload">Load Project</button></td>
-      <input type="file" id="load" style="display: none;"/>
-    </tr>
-    </table>
   </table>
   <div id="content_blocks" class="content"></div>
   <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
