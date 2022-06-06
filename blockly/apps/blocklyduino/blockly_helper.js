@@ -274,7 +274,7 @@ function resetClick() {
 }
 
 function stimClick() {
-  const muteButton = document.getElementById('stimToggle');
+  var muteButton = document.getElementById('stimToggle');
 
   // Toggle button text
   if (muteButton.innerText == 'Low Stimuli Mode') {

@@ -6,6 +6,7 @@
         <link href="style.css" rel="stylesheet">
     </head>
 
+    <script type="text/javascript" src="helpScript.js"></script>
     <script></script>
 
     <body>
@@ -41,19 +42,25 @@
 
         <div class="sec3">
             <h3 id="demo-files">Demo files</a></h3>
-            <p>Some information about the demo files</p>
+            <p>Here you can find some demo files to help you be on your way!</p>
            
             <table>
                 <tr>
                     <td>
                         Demo 1
-                        <button type="button" onclick="alert('Demo 1')">Load demo 1</button>
+                        <button type="button" id="1" onclick="demoClick(this.id)">Try this demo</button>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Demo 2
-                        <button type="button" onclick="alert('Demo 2')">Load demo 2</button>
+                        <button type="button" id="2" onclick="demoClick(this.id)">Try this demo</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Demo 3
+                        <button type="button" id="3" onclick="demoClick(this.id)">Try this demo</button>
                     </td>
                 </tr>
               </table>
