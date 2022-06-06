@@ -1,5 +1,8 @@
 <html manifest=node.manifest>
 <head>
+  <head>
+    <script src="https://kit.fontawesome.com/e7bc0cd849.js" crossorigin="anonymous"></script>
+  </head>
   <meta charset="utf-8">
   <title>Prototype</title>
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
@@ -328,12 +331,11 @@ function init() {
         <table width="100%">
           <tr id="tabRow" height="1em">
             <td class="tabmin">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset Arduino</button>
-              <button onclick="discard()">Clear Workspace</button>
-              <button onclick="saveCode()">Save Arduino Code</button>
-
-              <button class = "stim" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
+              <button type="button" onclick="uploadClick()", title="Upload to Arduino"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+              <button type="button" onclick="resetClick()", title = "Reset Arduino"><i class="fa-solid fa-power-off"></i></button>
+              <button type="button" onclick="discard()", title= "Clear Workspace"><i class="fa-solid fa-file-circle-xmark"></i></button>
+              <button type="button" onclick="saveCode()", title ="Save Arduino Code"><i class="fa-solid fa-floppy-disk"></i></button>
+              <button class = "button" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
