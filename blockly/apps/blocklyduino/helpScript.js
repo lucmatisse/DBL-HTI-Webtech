@@ -10,9 +10,9 @@ goog.require('Blockly.BlockSvg');
  * @param {string} id The ID number of the selected button 
  */
 function demoClick(id) {
-  //alert('Load demo ' + id);
-  var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="40" x="38" y="13"><value name="IF0"><block type="inout_digital_read" id="68"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone" id="31"><field name="PIN">2</field><field name="tone_choice">C4</field><field name="duration">1000</field></block></statement></block></xml>';
-  setStorage(xml);
+  alert('Loaded demo ' + id);
+  var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="16" x="88" y="88"><value name="IF0"><block type="inout_digital_read" id="34"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone_time" id="49"><field name="PIN">2</field><field name="tone_choice">C4</field><field name="duration">1000</field></block></statement></block></xml>';
+  setDemoStorage(xml);
 }
 
 /**
@@ -51,6 +51,6 @@ function loadDemo(xml) {
   document.getElementById('load').value = '';
 }
 
-function setStorage(xml) {
-  window.localStorage.setItem('demo', xml)
+function setDemoStorage(xml) {
+  window.localStorage.setItem('demo', xml);
 }

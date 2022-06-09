@@ -288,11 +288,13 @@ function stimClick() {
 }
 
 /**
- * Restore code blocks from localStorage.
+ * Load demo from localStorage
  */
  function loadDemoStorage() {
-  if ('localStorage' in window && window.localStorage.demo) {
-    var xml = Blockly.Xml.textToDom(window.localStorage.demo);
-    Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+    if ('localStorage' in window && window.localStorage.demo) {
+      var xml = Blockly.Xml.textToDom(window.localStorage.demo);
+      Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+      window.localStorage.removeItem('demo');
+    }
+    console.log('test');
   }
-}
