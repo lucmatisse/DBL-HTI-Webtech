@@ -6,9 +6,6 @@
   <meta charset="utf-8">
   <title>Prototype</title>
 
-  
-  
-
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
   <script type="text/javascript" src="../../arduino_compressed.js"></script>
@@ -17,6 +14,7 @@
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
+  <script type="text/javascript" src="helpScript.js"></script>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>
 
@@ -28,7 +26,7 @@ var TABS_ = ['blocks', 'arduino', 'xml']; // got rid of the 'xml' tab
 
 var selected = 'blocks';
 
-
+// Maybe move this to the blockly_helper.js file?
 function goPython(){
             $.ajax({
               url: "arduino_web_server.py",
@@ -38,15 +36,12 @@ function goPython(){
             });
 }
 
-
 /**
  * Switch the visible pane when a tab is clicked.
  * @param {string} clickedName Name of tab clicked.
  */
 function tabClick(clickedName) {
   // If the XML tab was open, save and render the content.
-
-  
   
   if (document.getElementById('tab_xml').className == 'tabon') {
     var xmlTextarea = document.getElementById('content_xml');
@@ -67,8 +62,6 @@ function tabClick(clickedName) {
       Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
     }
   }
-
-
 
   if (document.getElementById('tab_blocks').className == 'tabon') {
     Blockly.mainWorkspace.setVisible(false);
@@ -99,10 +92,7 @@ function helpWindow() {
   //location.href = "./help.html"; // this is simple way to just direct to the help page
 
   window.open('./help.html'); // open new tab with the help page
-
-
 }
-
 
 /**
  * Populate the currently selected pane with content generated from the blocks.
@@ -117,22 +107,18 @@ function renderContent() {
   } else if (content.id == 'content_xml') {
     // code here shows what is shown when this tab is selected. 
     // tried showing html help page but struggling rn
-
     
     var xmlTextarea = document.getElementById('content_xml');
     var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
     var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
     xmlTextarea.value = "";
-    xmlTextarea.focus();
-    
+    xmlTextarea.focus();  
 
     // var xmlTextarea = document.getElementById('content_xml');
     // var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
     // var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
     // xmlTextarea.value = xmlText;
     // xmlTextarea.focus();
-
-
 
   /*} else if (content.id == 'content_javascript') {
     content.innerHTML = Blockly.JavaScript.workspaceToCode();
@@ -354,6 +340,13 @@ function init() {
               <button class = "button" onclick="stimClick()" id="stimToggle">Low Stimuli Mode</button>
 
               <button onclick="goPython()">Run Python</button>
+              <button onclick="save()">Save Project</button>
+              <button id="fakeload">Load Project</button>
+              <input type="file" id="load" style="display: none;"/>
+
+              <!--Manually load localStorage for testing purposes-->
+              <button onclick="loadDemoStorage()">Load Demo</button>
+
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
               <!--button class="launch" onclick="runJS()">Run Program</button-->
             </td>
@@ -377,15 +370,6 @@ function init() {
     <tr>
       <td height="99%" id="content_area"></td>
     </tr>
-    <table class="sl">
-    <tr>
-      <td><button onclick="save()">Save Project</button></td>
-    </tr>
-    <tr>
-      <td><button id="fakeload">Load Project</button></td>
-      <input type="file" id="load" style="display: none;"/>
-    </tr>
-    </table>
   </table>
   <div id="content_blocks" class="content"></div>
   <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>

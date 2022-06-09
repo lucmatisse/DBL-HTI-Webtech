@@ -274,7 +274,7 @@ function resetClick() {
 }
 
 function stimClick() {
-  const muteButton = document.getElementById('stimToggle');
+  var muteButton = document.getElementById('stimToggle');
 
   // Toggle button text
   if (muteButton.innerText == 'Low Stimuli Mode') {
@@ -285,4 +285,14 @@ function stimClick() {
 
   // Toggle modes (binary switch)
   Blockly.BlockSvg.toggleMode();
+}
+
+/**
+ * Restore code blocks from localStorage.
+ */
+ function loadDemoStorage() {
+  if ('localStorage' in window && window.localStorage.demo) {
+    var xml = Blockly.Xml.textToDom(window.localStorage.demo);
+    Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
+  }
 }
