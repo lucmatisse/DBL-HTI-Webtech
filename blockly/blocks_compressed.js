@@ -213,7 +213,7 @@ Blockly.Blocks['inout_tone_time'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Set PIN#")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "PIN")
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"],["4","4"], ["5","5"], ["6","6"],["7","7"], ["8","8"], ["9","9"],["10","10"], ["11","11"], ["12","12"],["13","13"]]), "PIN")
         .appendField("to tone")
         .appendField(new Blockly.FieldTextInput(""), "tone_choice")
         .appendField("for")
@@ -231,7 +231,7 @@ Blockly.Blocks['inout_tone'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Set PIN#")
-        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"]]), "PIN")
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"],["4","4"], ["5","5"], ["6","6"],["7","7"], ["8","8"], ["9","9"],["10","10"], ["11","11"], ["12","12"],["13","13"]]), "PIN")
         .appendField("to tone")
         .appendField(new Blockly.FieldTextInput(""), "tone_choice")
     this.setPreviousStatement(true, null);
@@ -240,4 +240,4 @@ Blockly.Blocks['inout_tone'] = {
  this.setTooltip("Set the tone you want a speaker or buzzer to play (for example: C4)");
  this.setHelpUrl("");
   }
-};
+}
