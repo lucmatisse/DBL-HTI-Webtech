@@ -296,5 +296,13 @@ function stimClick() {
       Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
       window.localStorage.removeItem('demo');
     }
-    console.log('test');
   }
+
+/**
+ * If a demo is still loaded in localStorage, remove it
+ */
+ function clearDemoStorage() {
+  if ('localStorage' in window && window.localStorage.demo) {
+    window.localStorage.removeItem('demo');
+  }
+}

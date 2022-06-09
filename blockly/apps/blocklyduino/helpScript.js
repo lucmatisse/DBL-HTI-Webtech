@@ -6,7 +6,7 @@
 goog.require('Blockly.BlockSvg');
 
 /**
- * Handles button click for loading demo files
+ * Handles button click for loading demo files. Currently all three demos load the same file, which is hardcoded as var xml
  * @param {string} id The ID number of the selected button 
  */
 function demoClick(id) {
@@ -27,28 +27,6 @@ function loadXMLDoc() {
   };
   xhttp.open("GET", "demo1.xml", true);
   xhttp.send();
-}
-
-/**
- * Function for loading XML data into the workspace
- * @param {string} xml String content of an XML file
- */
-function loadDemo(xml) {
-  try {
-    xml = Blockly.Xml.textToDom(xml);
-  } catch (e) {
-    alert('Error parsing XML:\n' + e);
-    return;
-  }
-
-  var count = Blockly.mainWorkspace.getAllBlocks().length;
-
-  if (count && confirm('Replace existing blocks?\n"Cancel" will merge.')) {
-    Blockly.mainWorkspace.clear();
-  }
-
-  Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
-  document.getElementById('load').value = '';
 }
 
 function setDemoStorage(xml) {
