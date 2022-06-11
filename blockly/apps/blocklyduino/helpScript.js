@@ -21,7 +21,9 @@ function demoClick(id) {
   }
 
   // Check if there is a demo loaded and clear it if needed
-  clearDemoStorage();
+  if ('localStorage' in window && window.localStorage.demo) {
+    window.localStorage.removeItem('demo');
+  }
 
   // Load correct demo, not yet implemented
   // var xml = loadXMLDoc(id) // id corresponds to file name
