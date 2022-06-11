@@ -11,28 +11,34 @@ goog.require('Blockly.BlockSvg');
  */
 function demoClick(id) {
   var currentButton = document.getElementById(id);
+  var active = true;
 
   // Toggle text of clicked button
   if (currentButton.innerText == 'Try this demo') {
     currentButton.innerText = 'Demo loaded!';
-    updateButtons(id);  // Deactivate the other buttons
+    active = true;      // This click activated this demo
+    updateButtons(id);  // Reset the other buttons
   } else {
     currentButton.innerText = 'Try this demo';
+    active = false;     // This click deactivated this demo
   }
 
   // Check if there is a demo loaded and clear it if needed
   if ('localStorage' in window && window.localStorage.demo) {
     window.localStorage.removeItem('demo');
   }
-
-  // Load correct demo, not yet implemented
-  // var xml = loadXMLDoc(id) // id corresponds to file name
-
-  // Currently has a hardcoded demo
-  var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="16" x="88" y="88"><value name="IF0"><block type="inout_digital_read" id="34"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone_time" id="49"><field name="PIN">2</field><field name="tone_choice">C4</field><field name="duration">1000</field></block></statement></block></xml>';
   
-  // Load demo file to memory
-  setDemoStorage(xml);
+  // Load a new demo if this click activated one
+  if (active) {
+    // Load correct demo, not yet implemented
+    // var xml = loadXMLDoc(id) // id corresponds to file name
+    
+    // Currently has a hardcoded demo as an alternative
+    var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="16" x="88" y="88"><value name="IF0"><block type="inout_digital_read" id="34"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone_time" id="49"><field name="PIN">2</field><field name="tone_choice">C4</field><field name="duration">1000</field></block></statement></block></xml>';
+    
+    // Load demo file to memory
+    setDemoStorage(xml);
+  }
 }
 
 /**
