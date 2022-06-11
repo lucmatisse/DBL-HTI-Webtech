@@ -34,7 +34,23 @@ function demoClick(id) {
     // var xml = loadXMLDoc(id) // id corresponds to file name
     
     // Currently has a hardcoded demo as an alternative
-    var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="16" x="88" y="88"><value name="IF0"><block type="inout_digital_read" id="34"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone_time" id="49"><field name="PIN">2</field><field name="tone_choice">C4</field><field name="duration">1000</field></block></statement></block></xml>';
+
+    // switch to implement different xml file to different demo's 
+    switch (id) { 
+
+      case 'demo1': 
+        var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="16" x="88" y="88"><value name="IF0"><block type="inout_digital_read" id="34"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone_time" id="49"><field name="PIN">2</field><field name="tone_choice">C4</field><field name="duration">1000</field></block></statement></block></xml>';
+        break;
+      
+      case 'demo2':
+        var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="110" x="188" y="113"><value name="IF0"><block type="grove_button" id="174"><field name="PIN">1</field></block></value><statement name="DO0"><block type="inout_tone" id="164"><field name="PIN">2</field><field name="tone_choice">C</field></block></statement></block></xml>';
+        break;
+
+      case 'demo3':
+        var xml = '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="controls_if" id="209" x="213" y="113"><value name="IF0"><block type="logic_compare" id="221"><field name="OP">EQ</field><value name="A"><block type="variables_get" id="236"><field name="VAR">item</field></block></value><value name="B"><block type="text" id="249"><field name="TEXT">demo3</field></block></value></block></value><statement name="DO0"><block type="inout_tone_time" id="266"><field name="PIN">1</field><field name="tone_choice">C</field><field name="duration">1000</field></block></statement></block></xml>';
+        break;
+    }
+
     
     // Load demo file to memory
     setDemoStorage(xml);
