@@ -26,6 +26,12 @@ var TABS_ = ['blocks', 'arduino', 'xml']; // got rid of the 'xml' tab
 
 var selected = 'blocks';
 
+// Check if there is currently a demo loaded and clear it if needed
+clearDemoStorage();
+
+// Load potential demos when focussing the window
+window.addEventListener('focus', loadDemoStorage);
+
 // Maybe move this to the blockly_helper.js file?
 function goPython(){
             $.ajax({
@@ -207,6 +213,7 @@ function init() {
   if(dest){
     load_by_url(dest);
   }
+
 }
   </script>
   <style>
@@ -343,7 +350,7 @@ function init() {
               <input type="file" id="load" style="display: none;"/>
 
               <!--Manually load localStorage for testing purposes-->
-              <button onclick="loadDemoStorage()">Load Demo</button>
+              <!--button onclick="loadDemoStorage()">Load Demo</button-->
 
               <!-- <button type="button" onclick="location.href='./help.html'">Help</button> commented this since tab now does this -->
               <!--button class="launch" onclick="runJS()">Run Program</button-->
