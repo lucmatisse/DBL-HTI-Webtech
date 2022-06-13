@@ -1,38 +1,32 @@
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Trebuchet MS';
-    background-color: lightblue;
+    background-color: #ddd;
 }
-
 h1 {
     text-align: center;
     color: black;
     font-size: 60px;
     margin: 20px 20px;
 }
-
 h3 {
     color: black;
     font-size: 30px;
 }
-
 li {
     margin: 10px 40px;
 }
-
 .navigation {
     margin: 20px 20px;
 }
-
 .sec1 {
     margin: 20px 20px;
 }
-
 .sec2 {
     margin: 20px 20px;
 }
-
 .sec3 {
     margin: 20px 20px;
 }
@@ -54,3 +48,17 @@ table {
     border: none;
     border-spacing: 10px 5px;
   }
+h5 {
+    font-size: 20px;
+}
+table tr td {
+    width: auto;
+    text-align: left;
+}
+td img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px
+}

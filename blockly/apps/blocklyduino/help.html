@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>Help Page</title>
@@ -40,13 +40,231 @@
         </div>
 
         <div class="sec2">
-            <h3 id="blocks">Blocks</a></h3>
-            <img src="https://images.theconversation.com/files/443350/original/file-20220131-15-1ndq1m6.jpg?ixlib=rb-1.1.0&rect=0%2C0%2C3354%2C2464&q=45&auto=format&w=926&fit=clip" 
-            alt="Cat" width="463" height="340">
-            <p>Some explanation</p>
-            <img src="https://www.petmd.com/sites/default/files/styles/article_image/public/orange-tabby-kitten-walking-across-floor.jpg?itok=ApRxY9_r" 
-            alt="Cat" width="463" height="340">
-            <p>Some more explanation</p>
+          <h3 id="blocks">Blocks</a></h3>
+          <table>
+            <tr>
+              <td>
+                <h5>Logic</h5>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/if.png" alt="block for if statement"></td>
+              <td>
+                This block is used to make something happen when a certain condistion is met.
+                It can be extended by clicking the gear icon with else if and else statements.
+                The else if statement can be used to check for another condition.
+                the else statement can be used to perform an action if none of the previously stated conditions are met.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/comparison.png" alt="block for comparison"></td>
+              <td>
+                This block is used to compare two variables and see whether they are the same or different. The possibilities
+                are:
+                <ul>
+                  <li> = : check if the variables are the same</li>
+                  <li> ≠ : check if the variables are not the same</li>
+                  <li> < : check if the first variable is less than the second variable</li>
+                  <li> ≤ : check if the first variable is less than or equal to the second variable</li>
+                  <li> > : check if the first variable is larger than the second variable</li>
+                  <li> ≥ : check if the first variable is larger than or equal to the first variable</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/operator.png" alt="block for operators"></td>
+              <td>
+                This block is used to determine the logic between two variables. The possibilities are:
+                <ul>
+                  <li> and : if both terms are true, this will result in true, otherwise this will result in false</li>
+                  <li> or : if at least one of the terms is true, this will result in true, if both terms are false, this will
+                    result in false</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/not.png" alt="block for not"></td>
+              <td>
+                This block is used to add the not operator to a variable,
+                changing something that is true to false and something that is false to true.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/null.png" alt="block for null"></td>
+              <td>
+                This block is used to set a variable to null, which means it has no value.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Control</h5>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/delay.png" alt="block for delay"></td>
+              <td>
+                This block is used to make the next line of code happen later.
+                A number can be added in the blue block which wil be the amount of milliseconds the programme will pause.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/for.png" alt="block for for statement"></td>
+              <td>
+                This block is used to put a for loop in the programme. 
+                A for loop is used to loop through a part of the code a set number of times.
+                The variable can be renamed and the start and end values can be added. 
+                In the last gap, it can be added by how much the variable increases after every time the code in the loop has been executed.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/while.png" alt="block for while loop"></td>
+              <td>
+                This block is used to put a loop in the programme.
+                If while is chosen from the dropdown menu, the code will repeat until the condition is no longer met.
+                If until is chosen, the code will repeat until the condition is met.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Variables</h5>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/set.png" alt="block for setting a variable"></td>
+              <td>
+                This block is used to set a variable to a value.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/item.png" alt="block for variables"></td>
+              <td>
+                This block is used to add a variable to another block.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Input/Output</h5>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/text.png" alt="block for text"></td>
+              <td>
+                This block is used to add a word or line of text to another block.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/highLow.png" alt="block for setting high and low"></td>
+              <td>
+                This block is used to set the value of a block to either high or low.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/digitalWrite.png" alt="block for digitalWrite"></td>
+              <td>
+                This block is used to set the value of a Arduino component on a certain pin to high or low. 
+                This is used for the digital pins (1-13) and components.
+                Digital is faster but less precise than analog.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/digitalRead.png" alt="block for digitalRead"></td>
+              <td>
+                This block is used to get the value of a Arduino component from a certain pin. 
+                This is used for the digital pins (1-13)and components.
+                Digital is faster but less precise than analog.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/analogWrite.png" alt="block for analogWrite"></td>
+              <td>
+                This block is used to set the value of a Arduino component on a certain pin. 
+                This is used for the analog pins (A0-A5) and components.
+                Analog is slower but more precise than digital.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/analogRead.png" alt="block for analogRead"></td>
+              <td>
+                This block is used to get the value of a Arduino component on a certain pin. 
+                This is used for the analog pins (A0-A5) and components.
+                Analog is slower but more precise than digital.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/print.png" alt="block for serial print"></td>
+              <td>
+                This block is used to display text.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Sound</h5>
+              </td>
+            </tr>
+            <tr>
+              <td><img src = ".blockImg/tonenotime.png" alt="block for tone without time"></td>
+              <td> 
+                This block is used to play a tone (for example C4, BS8, etc.) without a time limit
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/tone.png" alt="block for tone"></td>
+              <td>
+                This block is used to play a tone (for example C4) for a certain amount of time.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/noTone.png" alt="block for no tone"></td>
+              <td>
+                This block is used to not play a tone.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Arduino Components</h5>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/led.png" alt="block for led"></td>
+              <td>
+                This block is used to represent the LED component. 
+                It can be set to high (on) and low (off).
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/button.png" alt="block for button"></td>
+              <td>
+                This block is used to represent the button component.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/joystick.png" alt="block for joystick"></td>
+              <td>
+                This block is used to represent the joystick component.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/buzzer.png" alt="block for buzzer"></td>
+              <td>
+                This block is used to represent the buzzer component.
+                It can be set to high (on) or low (off).
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/rgbLed.png" alt="block for rgb LED"></td>
+              <td>
+                This block is used to represent the rgb LED component.
+                The colour can be changed in the bottom right corner.
+              </td>
+            </tr>
+            <tr>
+              <td><img src="./blockImg/buildInLed.png" alt="block for built in LED"></td>
+              <td>
+                This block can be used to represent the build-in LED of the Arduino.
+                It can be set to high (on) or low (off).
+              </td>
+            </tr>
+          </table>
         </div>
 
         <div class="sec3">
@@ -77,4 +295,34 @@
         </div>
 
     </body>
+</html>
+<head>
+  <title>Help Page</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Help page</h1>
+  </header>
+  <div class="navigation">
+    <h3>Navigation</h3>
+    <ul>
+      <li><a href="#tutorial">Tutorial</a></li>
+      <li><a href="#blocks">Blocks</a></li>
+      <li><a href="#demo-files">Demo files</a></li>
+    </ul>
+  </div>
+  <div class="sec1">
+    <h3 id="tutorial">Tutorial</a></h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/J-e9GBdldVY" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <p>Some additional information about the video if needed</p>
+  </div>
+  
+  <div class="sec3">
+    <h3 id="demo-files">Demo files</a></h3>
+    <p>Some information about the demo files</p>
+  </div>
+</body>
 </html>
