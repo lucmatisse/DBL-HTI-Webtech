@@ -1,0 +1,29 @@
+/* Stylesheet for the landing page (seperate for clarity) */
+
+/*
+To do: 
+* Section padding and spacing
+* Alignment: sections and card should be centered on the page while text remains left-aligned (center headers?)
+* CSS cards for downlad buttons, just for style
+*/
+
+body {
+    background-color:whitesmoke;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 30px;
+}
+
+h2 {
+    font-family: Verdana;
+    font-size: 20px;
+}
+  
+p {
+    font-family: Verdana;
+    font-size: 16px;
+}
