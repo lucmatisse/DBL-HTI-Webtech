@@ -5,7 +5,15 @@
     <link href="landingStyle.css" rel="stylesheet">
   </head>
 
-  <script type="text/javascript" src="landingScript.js"></script>
+  <script>
+
+    // Function to handle clicks on the download cards, scrolls to instructions section
+    function downloadClick() {
+      var target = document.getElementById("instructions");
+      target.scrollIntoView(true);
+    }
+
+  </script>
 
   <body>
     <h1>Welcome</h1>
@@ -46,13 +54,13 @@
       </p>
 
       <p>
-        If you are unsure if you have the correct version of Python installed or don't know how to proceed, ask an adult for help!
+        If you are unsure if you have the correct version of Python installed or otherwise don't know how to proceed, ask an adult
+        for help!
       </p>
-
 
       <div class="cardSection">
         <a class="cards" href="./Downloads/2IOA0 Group 2 Web Server.zip" download>
-          <div class="card" id="download" onclick="downloadClick(this.id)">
+          <div class="card" id="download" onclick="downloadClick()">
             <img src="../../media/downloadCard.png" alt="Download Icon" style="width:100%">
             <div class="container">
               <h3>Web Server</h3>
@@ -61,7 +69,7 @@
         </a>
       
         <a class="cards" href="./Downloads/2IOA0 Group 2 Web Server + Python.zip" download>
-          <div class="card" id="downloadPy" onclick="downloadClick(this.id)">
+           <div class="card" id="downloadPy" onclick="downloadClick()">
             <img src="../../media/downloadCard.png" alt="Download Icon" style="width:100%">
             <div class="container">
               <h3>Web Server + Python 2.7</h3>
@@ -72,15 +80,52 @@
 
     </section>
 
-    <section>
+    <section id="instructions">
+
       <h2>Install instructions</h2>
-      <p>Would be pretty cool if the site scrolls to this section after pressing a download button.</p>
-      <p>The idea is that this part contains detailed instructions with pictures and such</p>
+
+      <p>
+        Your download should have started! Once it is done, find the downloaded zip folder in the location you saved it to. By default,
+        this will be your "Downloads" folder. The file you're looking for is "2IOA0 Group 2 Web Server" or "2IOA0 Group 2 Web Server
+        + Python" if you chose to download Python too.
+      </p>
+
+      <table>
+        <tr>
+          <td>
+            Once you have found the file, right-click it to open the context menu. Find and click "Extract all..." as seen in the'
+            image on the right. A new screen will open. Here, click the "Extract" button.
+          </td>
+          <td><img src="../../media/Extract ZIP file.png" alt="Extract All" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td><img src="../../media/Extracted Files.png" alt="Extracted Files" style="width:100%"></td>
+          <td>
+            You should now see a screen similar to the one shown on the left. If you downloaded Python, double-click "python-2.7.18"
+            to launch the installer. Follow the instructions in the install wizard to install Python 2.7.
+            <br>
+            Once Python is installed, or if this was already the case, you can launch the web server. Double-clicking the file
+            "arduino_web_server" should open it. If not, right-click it to open the context menu, choose "Open with" and select
+            python (make sure to use version 2.7). 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            The file should now open a command prompt. If everything went well, the window should read: "Blocklyduino can now
+            be accessed at http://127.0.0.1:8080/". 
+            <br>
+            The setup is now complete! Leave this window open in the background and see
+            the next section.
+          </td>
+          <td><img src="../../media/Running Web Server.png" alt="Extract All" style="width:100%"></td>
+        </tr>
+      </table>
+
     </section>
 
     <section>
       <h2>Launch the tool</h2>
-      <p>This section should have a button to launch the tool, might be nice to add a link to this button at the top to save time?</p>
+      <p>You are now ready to launch the tool! Press this button to start learning how to program!</p>
     </section>
 
   </body>
