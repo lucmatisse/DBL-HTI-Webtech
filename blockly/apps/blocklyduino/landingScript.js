@@ -6,6 +6,6 @@
  * Handles clicks on download cards
  */
 function downloadClick(id) {
-  alert("Clicked card with ID: " + `"${id}"`);
+  //alert("Clicked card with ID: " + `"${id}"`);
 
 }
