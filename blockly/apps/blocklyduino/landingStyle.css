@@ -4,7 +4,6 @@
 To do: 
 * Section padding and spacing
 * Alignment: sections and card should be centered on the page while text remains left-aligned (center headers?)
-* CSS cards for downlad buttons, just for style
 */
 
 body {
@@ -22,8 +21,33 @@ h2 {
     font-family: Verdana;
     font-size: 20px;
 }
+
+h3 {
+    font-family: Verdana;
+    font-size: 20px;
+}
   
 p {
     font-family: Verdana;
     font-size: 16px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 15%;
+    display: inline-block;
+    margin:10px;
+    cursor: pointer;
+ }
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
+  
+.container {
+    padding: 2px 16px;
+    height: 6em;
+    overflow: clip;
+    text-align: center;
 }
