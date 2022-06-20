@@ -1,0 +1,133 @@
+<!DOCTYPE html >
+<html >
+  <head>
+    <title >Welcome to the tool!</title>
+    <link href="landingStyle.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e7bc0cd849.js" crossorigin="anonymous"></script>
+  </head>
+
+  <script>
+    // Function to handle clicks on the download cards, scrolls to instructions section
+    function downloadClick() {
+      var target = document.getElementById("instructions");
+      target.scrollIntoView();
+    }
+  </script>
+
+  <body>
+    <h1>Welcome</h1>
+
+    <section>
+
+      <h2>Introduction to the tool</h2>
+      <p>
+        Welcome to the 2IOA0 Group 2 visual programming tool! This tool is tailored to the needs of children aged 10-12 who are 
+        on the autism spectrum. It aims to provide them an intuitive environment in which they can master the basics of programming
+        by dragging, dropping, and snapping together visual blocks that represent programming concepts.
+      </p>
+
+      <p>For more information on the tool, see the <a href="../../../README.md">readme file.</a></p>
+
+      <p>To lauch the tool directly, <a href="index.html">click here!</a></p>
+
+    </section>
+
+    <section>
+
+      <h2>Get started</h2>
+
+      <p>
+        Our tool runs completely in your web browser. You can try it straight away and use its basic features without installing
+        anything. However, to use all features such as uploading directly to the Arduino, you will need to run a local web server. 
+      </p>
+
+      <p>You can download this server in the downloads section below.</p>
+      
+    </section>
+
+    <section>
+      <h2>Downloads</h2>
+      <p>
+        To run the program, you need to have Python 2.7 installed on your computer. If you already have this, click the left option
+        to download only the server. If you still need to install Python, click the right option!
+      </p>
+
+      <p>
+        If you are unsure if you have the correct version of Python installed or otherwise don't know how to proceed, ask an adult
+        for help!
+      </p>
+
+      <div class="cardSection">
+        <a class="cards" href="./Downloads/2IOA0 Group 2 Web Server.zip" download>
+          <div class="card" id="download" onclick="downloadClick()">
+            <img src="../../media/downloadCard.png" alt="Download Icon" style="width:100%">
+            <div class="container">
+              <h3>Web Server</h3>
+            </div>
+          </div>
+        </a>
+      
+        <a class="cards" href="./Downloads/2IOA0 Group 2 Web Server + Python.zip" download>
+           <div class="card" id="downloadPy" onclick="downloadClick()">
+            <img src="../../media/downloadCard.png" alt="Download Icon" style="width:100%">
+            <div class="container">
+              <h3>Web Server + Python 2.7</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </section>
+
+    <section id="instructions">
+
+      <h2>Install instructions</h2>
+
+      <p>
+        Your download should have started! Once it is done, find the downloaded zip folder in the location you saved it to. By default,
+        this will be your "Downloads" folder. The file you're looking for is "2IOA0 Group 2 Web Server" or "2IOA0 Group 2 Web Server
+        + Python" if you chose to download Python too.
+      </p>
+
+      <table>
+        <tr>
+          <td>
+            Once you have found the file, right-click it to open the context menu. Find and click "Extract all..." as seen in the'
+            image on the right. A new screen will open. Here, click the "Extract" button.
+          </td>
+          <td><img src="../../media/Extract ZIP file.png" alt="Extract All" style="width:100%"></td>
+        </tr>
+        <tr>
+          <td><img src="../../media/Extracted Files.png" alt="Extracted Files" style="width:100%"></td>
+          <td>
+            You should now see a screen similar to the one shown on the left. If you downloaded Python, double-click "python-2.7.18"
+            to launch the installer. Follow the instructions in the install wizard to install Python 2.7.
+            <br><br>
+            Once Python is installed, or if this was already the case, you can launch the web server. Double-clicking the file
+            "arduino_web_server" should open it. If not, right-click it to open the context menu, choose "Open with" and select
+            python (make sure to use version 2.7). 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            The file should now open a command prompt. If everything went well, the window should read: "Blocklyduino can now
+            be accessed at http://127.0.0.1:8080/". 
+            <br><br>
+            The setup is now complete! Leave this window open in the background and see
+            the next section.
+          </td>
+          <td><img src="../../media/Running Web Server.png" alt="Running Web Server" style="width:100%"></td>
+        </tr>
+      </table>
+
+    </section>
+
+    <section>
+      <h2>Launch the tool</h2>
+      <p>You are now ready to launch the tool! Press this button to start learning how to program!</p>
+      <a href="index.html">
+        <button type="button" title="Launch the tool!"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+    </section>
+
+  </body>
+</html>
