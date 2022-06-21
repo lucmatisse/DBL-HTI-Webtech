@@ -88,18 +88,16 @@ Copyright (C) 2012~2015 Fred Lin gasolin+blockly@gmail.com
  *   http://www.apache.org/licenses/LICENSE-2.0
 
 
-### Changes made by 2IOA0 Group 2 for their prototype
-This prototype is a web based visual programming tool aimed at children in the K-12 age range with Autism Spectrum Disorder (ASD). The current version runs locally and is based on BlocklyDuino.
+### Changes made by 2IOA0 Group 2: ASDuino
+ASDuino is a web based visual programming tool aimed at children in the K-12 age range with Autism Spectrum Disorder (ASD). It is a web hosted version based on BlocklyDuino
 
 ### Instructions
-The current prototype version is not yet hosted and therefore runs locally.
+In order to be able to communicate directly with an Arduino, a local web server needs to be running. This server is provided on the welcome page, optionally paired with a Python 2.7 installer.
 
 To start the tool:
-* Find `arduino_web_server.py` in the same folder as this README file and run it.
-* Check the Command Prompt for confirmation. The window should say: `Blocklyduino can now be accessed at http://127.0.0.1:8080/`
-* Open the Arduino IDE and let it run in the background.
-* Find the `2IOA0 Group 2 Prototype` shortcut in the same folder and run it. This should open a browser window.
-  Alternatively, try manually browsing to `http://127.0.0.1:8080/` to open the page.
+* Make sure Python 2.7 is installed.
+* Find the downloaded `arduino_web_server.py` and run it with Python 2.7 to start the server.
+* A command prompt window should now be open reporting that the tool is accesible. Leave this window running in the background and launch the tool from the web page.
 
 The visual interface should now be open and the tool is ready to go!
 
@@ -123,6 +121,3 @@ Additional features:
 * Esmée Torn
 * Luc Tortike
 * Isa Vogten
-
-### TEST LINK TO SITE
-[to website](blockly/apps/blocklyduino/index.html)
