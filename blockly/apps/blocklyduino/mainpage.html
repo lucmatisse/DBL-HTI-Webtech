@@ -4,7 +4,7 @@
     <script src="https://kit.fontawesome.com/e7bc0cd849.js" crossorigin="anonymous"></script>
   </head>  
   <meta charset="utf-8">
-  <title>Prototype</title>
+  <title>ASDuino</title>
 
   <script type="text/javascript" src="../../blockly_compressed.js"></script>
   <script type="text/javascript" src="../../blocks_compressed.js"></script>
@@ -31,16 +31,6 @@ clearDemoStorage();
 
 // Load potential demos when focussing the window
 window.addEventListener('focus', loadDemoStorage);
-
-// Maybe move this to the blockly_helper.js file?
-function goPython(){
-            $.ajax({
-              url: "arduino_web_server.py",
-             context: document.body
-            }).done(function() {
-             alert('finished python script');;
-            });
-}
 
 /**
  * Switch the visible pane when a tab is clicked.
@@ -332,7 +322,7 @@ function init() {
   <table height="100%" width="100%">
     <tr>
       <td>
-        <h1>2IOA0 Group 2 Prototype</h1>
+        <h1>ASDuino, visual programming for children on the autism spectrum</h1>
       </td>
     </tr>
     <tr>
